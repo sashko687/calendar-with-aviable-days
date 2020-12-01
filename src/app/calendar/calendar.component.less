@@ -1,0 +1,74 @@
+.calendar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+
+  .day {
+    width: 13%;
+    height: 13.5%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 230%;
+    border: 1px solid rgb(141, 137, 137);
+    background-color: rgb(241, 241, 241);
+    color: rgb(37, 34, 34);
+  }
+}
+.content-wraper{
+  width: 284px;
+  height: 240px;
+}
+.calendar-container{
+  text-align: center;
+}
+.calendar-wraper{
+  display: flexbox;
+  float: right;
+  width: 320px;
+  right: auto;
+  align-self: center;
+  cursor: default;
+}
+.align-icon{
+  display: inline-block;
+  cursor: pointer;
+}
+.chose-year{
+  position: fixed;
+  display: block;
+  width: 320px;
+  justify-content: space-between;
+  align-content: center;
+  background-color: rgb(255, 255, 255);
+  z-index: 1;
+}
+.align-chose-year{
+  padding-top: 10px;
+  display: inline-flex;
+  width: 320px;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.title-days{
+  width: 13%;
+    height: 13.5%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 200%;
+    border: 1px solid rgb(141, 137, 137);
+    background-color: rgb(250, 253, 253);
+    color: rgb(151, 150, 150);
+}
+.noCurrentMonth{
+  color: rgb(196, 190, 190);
+}
+
+.cell-of-date:hover{
+  border: 1px solid rgb(138, 169, 231);
+  cursor: pointer;
+}
+

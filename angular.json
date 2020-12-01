@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "calendar-with-aviable-days"
+    }
+  },
+  "defaultProject": "calendar-with-aviable-days",
+  "cli": {
+    "analytics": "ed5bd30b-4eb6-4a5f-8e7a-01224b135b8a"
+  }
 }

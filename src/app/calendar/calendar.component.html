@@ -1,0 +1,61 @@
+<div class="calendar-wraper">
+  <div class="chose-year">
+    <div class="align-chose-year">
+      <div class="align-icon">
+        <mat-icon (click)="onPreviousYear()">keyboard_arrow_left</mat-icon>
+      </div>
+      <span>{{ year }}</span>
+      <div (click)="onNextYear()" class="align-icon">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </div>
+    </div>
+   <hr>
+  </div>
+  <div style="margin-top: 17%; margin-bottom: 3%">
+    <div *ngFor="let month of countMonth" class="calendar">
+      <div class="calendar-container">
+        <span>{{ calendarCreator.getMonthName(month) }}</span>
+        <div class="content-wraper">
+          <span *ngFor="let weekDay of weekDaysName" class="title-days">
+            {{ weekDay }}
+          </span>
+          <div
+            *ngFor="let day of calendarCreator.getMonth(month, year)"
+            class="day"
+          >
+             <!-- mark cell days that don't include aviable days-->
+            <div *ngIf="(!day.isCurrentMonth || !checkAviableDay(day) && !checkDefaultDay(day))&&(
+              day.number !== today.day ||
+              day.monthIndex !== today.month ||
+              year !== today.year)">
+              <span appIsNotCurrentMonth>{{ day.number }}</span>
+            </div>
+
+              <!--mark cell days that include aviable days-->
+              <div  class="cell-of-date" *ngIf="day.isCurrentMonth &&(
+            day.number !== today.day ||
+            day.monthIndex !== today.month ||
+            year !== today.year) && checkAviableDay(day) && !checkDefaultDay(day)" (click)="chosenDay(day)">
+              <span>{{ day.number }}</span>
+            </div>
+
+            <!-- mark cell as today -->
+            <div
+              class="cell-of-date"
+              appToday
+              *ngIf="
+                day.isCurrentMonth &&
+                day.number == today.day &&
+                day.monthIndex == today.month &&
+                day.year == today.year;
+              "
+            >
+              <span>{{ day.number }}</span>
+            </div>
+                <div class="cell-of-date" appDefaultInput *ngIf="checkDefaultDay(day)&& day.year == year"><span>{{day.number}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
